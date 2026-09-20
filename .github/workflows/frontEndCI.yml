@@ -14,7 +14,7 @@ jobs:
           cache: npm
 
       - name: Install dependancies
-        run: run ci
+        run: npm ci
 
       - name: Create the production build
         run: npm run build
