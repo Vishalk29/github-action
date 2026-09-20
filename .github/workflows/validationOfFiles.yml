@@ -1,0 +1,17 @@
+name: Validation of files
+on: push
+jobs:
+  validation-file-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get-repo-code
+        uses: actions/checkout@v4
+
+      - name: checking html file present or not
+        run: test -f index.html
+
+      - name: checking Javscipt file present or not
+        run: test -f script.js
+
+      - name: checking Javscipt code correct or not
+        run: node -check script.js
