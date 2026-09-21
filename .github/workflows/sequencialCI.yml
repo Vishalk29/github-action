@@ -1,0 +1,36 @@
+name: "Sequencial workflow"
+
+on: push
+jobs:
+  validate-html:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get-repo-code
+        uses: actions/checkout@v4
+
+      - name: Validate html file
+        run: test -f index.html
+
+  validate-js:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: get-repo-code
+        uses: actions/checkout@v4
+
+      - name: Validate Js file
+        run: test -f script.html
+
+  validate-code:
+    needs: [validate-html, validate-js]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: get-repo-code
+        uses: actions/checkout@v4
+
+      - name: Validate Js code
+        run: node --check script.js
+
+      - name: Validate HTML code
+        run: npx htmlhint index.html
