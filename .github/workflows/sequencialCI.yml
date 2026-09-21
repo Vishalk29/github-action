@@ -1,4 +1,4 @@
-name: "Sequencial workflow"
+name: Sequencial workflow
 
 on:
   workflow_run:
