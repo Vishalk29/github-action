@@ -1,6 +1,10 @@
 name: "Sequencial workflow"
 
-on: push
+on:
+  workflow_run:
+    workflows: [Basic CI]
+    types:
+      - completed
 jobs:
   validate-html:
     runs-on: ubuntu-latest
