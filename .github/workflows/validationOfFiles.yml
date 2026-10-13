@@ -13,5 +13,7 @@ jobs:
       - name: checking Javscipt file present or not
         run: test -f script.js
 
+      # - name: checking Javscipt code correct or not
+      #   run: node --check script.js
       - name: checking Javscipt code correct or not
-        run: node --check script.js
+        run: exit 1
